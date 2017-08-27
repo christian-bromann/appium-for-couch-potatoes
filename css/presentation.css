@@ -1,0 +1,16 @@
+.reveal div.intro {
+    text-align: left;
+    padding: 20px 40px;
+}
+
+.reveal div.intro:before {
+    content: "";
+    display: block;
+    background: #65308f;
+    width: 10px;
+    height: 130px;
+    position: absolute;
+    transform: rotate(20deg);
+    top: 20px;
+    left: 0;
+}

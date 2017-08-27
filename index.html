@@ -8,6 +8,8 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
+		
+		<link rel="stylesheet" href="css/presentation.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,8 +26,23 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section
+					data-background="/img/start.png"
+					data-transition="slide-in fade-out">
+				</section>
+				<section
+					data-background="#fff">
+					<div class="intro">
+						Christian Bromann<br>
+						Software Engineer <a href="https://saucelabs.com/">@saucelabs</a>
+					</div>
+				</section>
+				<section
+					data-background="/img/fokus_building.jpg"
+					data-transition="convex"
+					data-background-transition="convex">
+					<img src="/img/fokus_logo.png" alt="" width="400">
+				</section>
 			</div>
 		</div>
 
@@ -37,6 +54,12 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
