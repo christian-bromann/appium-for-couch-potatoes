@@ -9,7 +9,8 @@
     "test": "grunt test",
     "start": "grunt serve",
     "build": "grunt",
-    "crmuxdriver": "crmuxdriver -c ~/.bin/chromedriver --port=4444 --url-base=/wd/hub --verbose"
+    "crmuxdriver": "crmuxdriver -c ~/.bin/chromedriver --port=4444 --url-base=/wd/hub --verbose",
+    "demo:throttle": "wdio demos/network-throtteling/wdio.conf.js"
   },
   "author": {
     "name": "Hakim El Hattab",
