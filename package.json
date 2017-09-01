@@ -10,7 +10,8 @@
     "start": "grunt serve",
     "build": "grunt",
     "crmuxdriver": "crmuxdriver -c ~/.bin/chromedriver --port=4444 --url-base=/wd/hub --verbose",
-    "demo:throttle": "wdio demos/network-throtteling/wdio.conf.js"
+    "demo:throttle": "wdio demos/network-throtteling/wdio.conf.js",
+    "demo:intercept": "wdio demos/network-intercept/wdio.conf.js"
   },
   "author": {
     "name": "Hakim El Hattab",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.1",
+    "chrome-remote-interface": "^0.24.4",
     "express": "~4.14.0",
     "grunt": "~1.0.1",
     "grunt-autoprefixer": "~3.0.3",
