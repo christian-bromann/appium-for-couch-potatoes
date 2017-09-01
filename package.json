@@ -11,7 +11,8 @@
     "build": "grunt",
     "crmuxdriver": "crmuxdriver -c ~/.bin/chromedriver --port=4444 --url-base=/wd/hub --verbose",
     "demo:throttle": "wdio demos/network-throtteling/wdio.conf.js",
-    "demo:intercept": "wdio demos/network-intercept/wdio.conf.js"
+    "demo:intercept": "wdio demos/network-intercept/wdio.conf.js",
+    "demo:lighthouse": "wdio demos/lighthouse/wdio.conf.js"
   },
   "author": {
     "name": "Hakim El Hattab",
@@ -41,6 +42,7 @@
     "grunt-retire": "~0.3.10",
     "grunt-sass": "~1.2.0",
     "grunt-zip": "~0.17.1",
+    "lighthouse": "^2.4.0",
     "mustache": "~2.2.1",
     "node-sass": "~3.13.0",
     "socket.io": "^1.4.8",
