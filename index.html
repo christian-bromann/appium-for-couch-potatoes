@@ -39,14 +39,75 @@
 				</section>
 				<section
 					data-background="/img/fokus_building.jpg"
-					data-transition="fade"
-					data-background-transition="fade">
+					data-transition="convex"
+					data-background-transition="convex">
 					<img src="/img/fokus_logo.png" alt="" width="400">
 				</section>
                 <section
+                    data-background-video="/videos/magic.mp4"
+                    data-background-video-loop
+                    data-background-video-muted>
+                </section>
+                <section
 					data-background="#fff"
                     data-transition="convex">
-                    Logo slide
+                    <div class="fragment logoslide">
+                        <div class="animatedlogo" style="position: absolute; left: 0%; top: 30%;">
+                            <img src="/img/logos/appium.png" alt="Appium" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 10%; top: 0%;">
+                            <img src="/img/logos/atata.png" alt="Atata" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 20%; top: 70%; z-index: 1;">
+                            <img src="/img/logos/Chrome.png" alt="Chrome" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 30%; top: 100%;">
+                            <img src="/img/logos/edge.jpg" alt="MS Edge" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 35%; top: 50%; z-index: 1">
+                            <img src="/img/logos/firefox.png" alt="Firefox" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 50%; top: 70%;">
+                            <img src="/img/logos/gab.png" alt="GAB" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 60%; top: 10%;">
+                            <img src="/img/logos/nightwatch.png" alt="Nightwatch" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 70%; top: 30%;">
+                            <img src="/img/logos/protractor.png" alt="Protractor" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 80%; top: 70%; z-index: 0">
+                            <img src="/img/logos/safari.png" alt="Safari" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 90%; top: 50%;">
+                            <img src="/img/logos/selenide.png" alt="Selenide" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 10%; top: 100%;">
+                            <img src="/img/logos/selenium.png" alt="Selenium" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 20%; top: 30%;">
+                            <img src="/img/logos/slimerjs.png" alt="SlimerJS" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 65%; top: 85%;">
+                            <img src="/img/logos/watir.png" alt="Watir" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 40%; top: 10%;">
+                            <img src="/img/logos/webdriverio.png" alt="WebdriverIO" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 85%; top: 0%;">
+                            <img src="/img/logos/ie.png" alt="Internet Explorer" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 45%; top: 85%;">
+                            <img src="/img/logos/opera.png" alt="Opera" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <div class="animatedlogo" style="position: absolute; left: 55%; top: 40%;">
+                            <img src="/img/logos/selendroid.png" alt="Selendroid" style="border:0; box-shadow: none; width: 200px;">
+                        </div>
+                        <h2 class="clients">Clients</h2>
+                        <h2 class="browser">Browser</h2>
+                        <h2 class="driver">Driver</h2>
+                    </div>
+                    <div class="fragment collectlogos"></div>
                 </section>
                 <section
                     data-background-iframe="https://chromedevtools.github.io/devtools-protocol/"
@@ -61,7 +122,7 @@
                     <section data-background="#fff">
                         <img src="/img/logos/hbbtv.png" alt="HbbTV" style="border: 0; box-shadow: none">
                     </section>
-                    <section>
+                    <section data-background="#fff">
                         BABPU
                     </section>
                     <section
@@ -89,6 +150,9 @@
 				history: true,
 				center: true,
 
+                width: 1920,
+                height: 1080,
+
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -97,6 +161,58 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+
+            var logoSlide = document.querySelector('.logoslide');
+            logoSlide.style.height = document.documentElement.clientHeight + 'px';
+            logoSlide.style.width = document.documentElement.clientWidth + 'px';
+
+            Reveal.addEventListener('fragmentshown', function(event) {
+            	if (event.fragment.className.indexOf('collectlogos') > -1) {
+                    console.log("DOO IT")
+                    document.querySelector('[alt="Appium"]').parentElement.style.left = '80%';
+                    document.querySelector('[alt="Appium"]').parentElement.style.top = '50%';
+                    document.querySelector('[alt="Atata"]').parentElement.style.left = '15%';
+                    document.querySelector('[alt="Atata"]').parentElement.style.top = '50%';
+                    document.querySelector('[alt="Chrome"]').parentElement.style.left = '53%';
+                    document.querySelector('[alt="Chrome"]').parentElement.style.top = '17%';
+                    document.querySelector('[alt="MS Edge"]').parentElement.style.left = '40%';
+                    document.querySelector('[alt="MS Edge"]').parentElement.style.top = '17%';
+                    document.querySelector('[alt="Firefox"]').parentElement.style.left = '55%';
+                    document.querySelector('[alt="Firefox"]').parentElement.style.top = '5%';
+                    document.querySelector('[alt="GAB"]').parentElement.style.left = '20%';
+                    document.querySelector('[alt="GAB"]').parentElement.style.top = '45%';
+                    document.querySelector('[alt="Nightwatch"]').parentElement.style.left = '20%';
+                    document.querySelector('[alt="Nightwatch"]').parentElement.style.top = '65%';
+                    document.querySelector('[alt="Protractor"]').parentElement.style.left = '25%';
+                    document.querySelector('[alt="Protractor"]').parentElement.style.top = '57%';
+                    document.querySelector('[alt="Safari"]').parentElement.style.left = '50%';
+                    document.querySelector('[alt="Safari"]').parentElement.style.top = '8%';
+                    document.querySelector('[alt="Selenide"]').parentElement.style.left = '5%';
+                    document.querySelector('[alt="Selenide"]').parentElement.style.top = '47%';
+                    document.querySelector('[alt="Selenium"]').parentElement.style.left = '70%';
+                    document.querySelector('[alt="Selenium"]').parentElement.style.top = '55%';
+                    document.querySelector('[alt="SlimerJS"]').parentElement.style.left = '9%';
+                    document.querySelector('[alt="SlimerJS"]').parentElement.style.top = '37%';
+                    document.querySelector('[alt="Watir"]').parentElement.style.left = '10%';
+                    document.querySelector('[alt="Watir"]').parentElement.style.top = '55%';
+                    document.querySelector('[alt="WebdriverIO"]').parentElement.style.left = '27%';
+                    document.querySelector('[alt="WebdriverIO"]').parentElement.style.top = '45%';
+                    document.querySelector('[alt="Internet Explorer"]').parentElement.style.left = '42%';
+                    document.querySelector('[alt="Internet Explorer"]').parentElement.style.top = '0%';
+                    document.querySelector('[alt="Opera"]').parentElement.style.left = '45%';
+                    document.querySelector('[alt="Opera"]').parentElement.style.top = '25%';
+                    document.querySelector('[alt="Selendroid"]').parentElement.style.left = '75%';
+                    document.querySelector('[alt="Selendroid"]').parentElement.style.top = '40%';
+
+                    setTimeout(() => {
+                        console.log("NOOW", document.querySelector('h2.clients'));
+                        document.querySelector('h2.clients').style.opacity = '1';
+                        console.log(document.querySelector('h2.clients').style);
+                    }  , 2000);
+                    setTimeout(() => document.querySelector('h2.browser').style.opacity = '1', 2200);
+                    setTimeout(() => document.querySelector('h2.driver').style.opacity = '1', 2400);
+                }
+            });
 		</script>
 	</body>
 </html>
