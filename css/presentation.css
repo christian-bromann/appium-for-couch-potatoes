@@ -12,9 +12,13 @@
     height: 200px;
     position: absolute;
     transform: rotate(20deg);
-    top: 0;
-    left: 0;
+    top: 20px;
+    left: 90px;
     transition: transform 0.4s;
+}
+
+.reveal div.intro.easeIn:before {
+    transform: rotate(-60deg);
 }
 
 .reveal h2.intro:before {
