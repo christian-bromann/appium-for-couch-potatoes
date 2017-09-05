@@ -109,6 +109,25 @@
                     </div>
                     <div class="fragment collectlogos"></div>
                 </section>
+                <section data-background="#fff">
+                    <div style="position: absolute; left: 45%; top: 0%;" class="exampleChrome animatedlogoQuick">
+                        <img src="/img/logos/Chrome.png" alt="Chrome" style="border:0; box-shadow: none; width: 300px;">
+                    </div>
+                    <div style="opacity: 0; position: absolute; left: 45%; top: 0%;" class="exampleWDIO animatedlogoQuick">
+                        <img src="/img/logos/webdriverio.png" alt="WebdriverIO" style="border:0; box-shadow: none; width: 300px;">
+                    </div>
+                    <div class="fragment exampleAnim1"></div>
+                    <div class="fragment fade-up" style="position: absolute; left: 45%; top: 40%">
+                        <img src="/img/arrow.png" alt="" style="position: absolute; left: 110%; top: 30%; border: 0; box-shadow: none;">
+                        <img src="/img/logos/selenium.png" alt="Selenium" style="border:0; box-shadow: none; width: 300px;">
+                        <img src="/img/arrow.png" alt="" style="position: absolute; right: 110%; top: 30%; border: 0; box-shadow: none; transform: rotate(180deg)">
+                    </div>
+                    <div class="fragment fade-up" style="position: absolute; left: 60%; top: 182%; background: white; width: 400px;">
+                        <img src="/img/arrow.png" alt="" style="position: absolute; left: 74%; top: 30%; border: 0; width: 100px; box-shadow: none;">
+                        <img src="/img/chromedriver.png" alt="chromedriver" style="border:0; box-shadow: none; width: 200px;">
+                        <img src="/img/arrow.png" alt="" style="position: absolute; right: 74%; top: 30%; border: 0; box-shadow: none; width: 100px; transform: rotate(180deg);">
+                    </div>
+                </section>
                 <section
                     data-background-iframe="https://chromedevtools.github.io/devtools-protocol/"
                     data-background-interactive
@@ -211,6 +230,12 @@
                     }  , 2000);
                     setTimeout(() => document.querySelector('h2.browser').style.opacity = '1', 2200);
                     setTimeout(() => document.querySelector('h2.driver').style.opacity = '1', 2400);
+                }
+
+                if (event.fragment.className.indexOf('exampleAnim1') > -1) {
+                    document.querySelector('.exampleChrome').style.left = '80%';
+                    setTimeout(() => document.querySelector('.exampleWDIO').style.opacity = 1, 100)
+                    setTimeout(() => document.querySelector('.exampleWDIO').style.left = '10%', 500)
                 }
             });
 		</script>

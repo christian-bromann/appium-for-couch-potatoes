@@ -16,7 +16,10 @@
 }
 
 .animatedlogo {
-    transition: left 2s, top 2s;
+    transition: left 2s, top 2s, opacity 2s;
+}
+.animatedlogoQuick {
+    transition: left .8s, top .8s, opacity .8s;
 }
 
 h2.clients {
