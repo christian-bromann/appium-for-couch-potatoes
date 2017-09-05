@@ -1,9 +1,22 @@
 .reveal div.intro {
     text-align: left;
-    padding: 20px 40px;
+    padding: 20px 60px;
+    margin-left: 100px;
 }
 
-.reveal div.intro:before,
+.reveal div.intro:before {
+    content: "";
+    display: block;
+    background: #65308f;
+    width: 20px;
+    height: 200px;
+    position: absolute;
+    transform: rotate(20deg);
+    top: 0;
+    left: 0;
+    transition: transform 0.4s;
+}
+
 .reveal h2.intro:before {
     content: "";
     display: block;
