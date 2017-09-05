@@ -144,6 +144,22 @@
                         data-background-video-loop
                         data-background-video-muted>
                     </section>
+                    <section>
+                        <div class="fragment rotateHeading" style="position:absolute; left: 10%; width: 35%; text-align: left; padding-left: 40px; padding-top: 55px;">
+                            <h2 class="intro easeIn">Selenium</h2>
+                            <ul>
+                                <li>Communication over a simplified HTTP protocol</li>
+                                <li>Support for all programming languages</li>
+                            </ul>
+                        </div>
+                        <div class="fragment rotateHeading" style="position:absolute; left: 60%; width: 35%; text-align: left; padding-left: 40px; padding-top: 55px;">
+                            <h2 class="intro easeIn">Webdriver</h2>
+                            <ul>
+                                <li>Browser automation using native interfaces</li>
+                                <li>No cross site scripting issues</li>
+                            </ul>
+                        </div>
+                    </section>
                 </section>
                 <section
                     data-background-iframe="https://chromedevtools.github.io/devtools-protocol/"
@@ -258,6 +274,12 @@
                 if (event.fragment.className.indexOf('scrollbrowser') > -1) {
                     document.querySelector('.safaricontent').style.backgroundPositionY = '100%';
                 }
+
+                if (event.fragment.className.indexOf('rotateHeading') > -1) {
+                    event.fragment.querySelector('h2').className = event.fragment.querySelector('h2').className.replace('easeIn', '')
+                }
+
+                rotateHeading
             });
 		</script>
 	</body>

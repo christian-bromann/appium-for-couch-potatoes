@@ -3,7 +3,8 @@
     padding: 20px 40px;
 }
 
-.reveal div.intro:before {
+.reveal div.intro:before,
+.reveal h2.intro:before {
     content: "";
     display: block;
     background: #65308f;
@@ -13,6 +14,11 @@
     transform: rotate(20deg);
     top: 20px;
     left: 0;
+    transition: transform 0.4s;
+}
+
+.reveal h2.intro.easeIn:before {
+    transform: rotate(-60deg);
 }
 
 .animatedlogo {
