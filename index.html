@@ -131,10 +131,11 @@
                 <section>
                     <section data-background="/videos/history.gif"></section>
                     <section data-background="#ffffff">
-                        <div style="background: url(/img/safari.png); width: 83%; height: 1144px; padding: 0; background-size: cover; margin: 0 auto; position: absolute; top: -60%; left: 10%; z-index: 10"></div>
-                        <div class="safaricontent" style="background: url(/img/safaricontent.png); width: 77%; background-size: contain; position: absolute; left: 13%; z-index: 1; transform: translateY(105px); max-height: none; height: 3000px; background-repeat: no-repeat;"></div>
+                        <div style="background: url(/img/safari.png); width: 88%; height: 1201px; padding: 0; background-size: cover; margin: 0 auto; z-index: 10; overflow: hidden; transform: translateY(-7%);">
+							<div class="safaricontent" style="background: url(/img/safaricontent.png) 0% 0% / cover no-repeat; width: 1550px; display: block; height: 969px; margin: 158px 70px 0; border-radius: 0 0 20px 20px;"></div>
+                        </div>
                         <div class="fragment scrollbrowser"></div>
-                        <div class="fragment"><div style="width: 53%; height: 200px; border: 10px solid red; position: absolute; border-radius: 70%; z-index: 11; left: 10%; transform: translateY(429px);"></div></div>
+                        <div class="fragment"><div style="width: 53%; height: 200px; border: 10px solid red; position: absolute; top: 0; border-radius: 70%; z-index: 11; left: 10%; transform: translateY(434px);"></div></div>
                     </section>
                 </section>
                 <section
@@ -248,7 +249,7 @@
                 }
 
                 if (event.fragment.className.indexOf('scrollbrowser') > -1) {
-                    document.querySelector('.safaricontent').style.transform = 'translateY(-800px)';
+                    document.querySelector('.safaricontent').style.backgroundPositionY = '100%';
                 }
             });
 		</script>
