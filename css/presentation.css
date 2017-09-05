@@ -21,6 +21,9 @@
 .animatedlogoQuick {
     transition: left .8s, top .8s, opacity .8s;
 }
+.safaricontent {
+    transition: transform ease 2s;
+}
 
 h2.clients {
     opacity: 0;

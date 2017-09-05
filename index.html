@@ -128,6 +128,15 @@
                         <img src="/img/arrow.png" alt="" style="position: absolute; right: 74%; top: 30%; border: 0; box-shadow: none; width: 100px; transform: rotate(180deg);">
                     </div>
                 </section>
+                <section>
+                    <section data-background="/videos/history.gif"></section>
+                    <section data-background="#ffffff">
+                        <div style="background: url(/img/safari.png); width: 83%; height: 1144px; padding: 0; background-size: cover; margin: 0 auto; position: absolute; top: -60%; left: 10%; z-index: 10"></div>
+                        <div class="safaricontent" style="background: url(/img/safaricontent.png); width: 77%; background-size: contain; position: absolute; left: 13%; z-index: 1; transform: translateY(105px); max-height: none; height: 3000px; background-repeat: no-repeat;"></div>
+                        <div class="fragment scrollbrowser"></div>
+                        <div class="fragment"><div style="width: 53%; height: 200px; border: 10px solid red; position: absolute; border-radius: 70%; z-index: 11; left: 10%; transform: translateY(429px);"></div></div>
+                    </section>
+                </section>
                 <section
                     data-background-iframe="https://chromedevtools.github.io/devtools-protocol/"
                     data-background-interactive
@@ -236,6 +245,10 @@
                     document.querySelector('.exampleChrome').style.left = '80%';
                     setTimeout(() => document.querySelector('.exampleWDIO').style.opacity = 1, 100)
                     setTimeout(() => document.querySelector('.exampleWDIO').style.left = '10%', 500)
+                }
+
+                if (event.fragment.className.indexOf('scrollbrowser') > -1) {
+                    document.querySelector('.safaricontent').style.transform = 'translateY(-800px)';
                 }
             });
 		</script>
