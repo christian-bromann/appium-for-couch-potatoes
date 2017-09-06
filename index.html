@@ -197,8 +197,31 @@
                     <section data-background="#fff">
                         <img src="/img/logos/hbbtv.png" alt="HbbTV" style="border: 0; box-shadow: none">
                     </section>
-                    <section data-background="#fff">
-                        BABPU
+                    <section data-background="#fff" style="width: 100%; height: 800px;">
+                        <div class="fragment rotateHeading" style="position:absolute; left: 10%; width: 35%; text-align: left; padding-left: 40px; padding-top: 55px; top: 0;">
+                            <h2 class="intro easeIn">Set Top Boxes</h2>
+                            <img src="/img/settopboxes.png" alt="" style="border: 0; box-shadow: none;">
+                        </div>
+                        <div class="fragment rotateHeading" style="position:absolute; left: 55%; width: 35%; text-align: left; padding-left: 40px; padding-top: 55px; top: 0;">
+                            <h2 class="intro easeIn">Smart TV Sticks</h2>
+                            <img src="/img/smarttvsticks.png" alt="" style="border: 0; box-shadow: none;">
+                        </div>
+                        <div class="fragment rotateHeading" style="position:absolute; left: 10%; width: 55%; text-align: left; padding-left: 40px; padding-top: 55px; top: 55%;">
+                            <h2 class="intro easeIn">Game Consoles</h2>
+                            <img src="/img/gameconsoles.png" alt="" style="border: 0; box-shadow: none;">
+                        </div>
+                    </section>
+                    <section
+                        data-background-color="#ffffff"
+                        data-background="/img/tvs.png"
+                        data-background-size="contain">
+                        <div class="fragment tv_os_systems" style="height: 800px">
+                            <img class="tv_os android_tv" src="/img/logos/android_tv.png" alt="Android TV" style="top: 0%;">
+                            <img class="tv_os firefox_os" src="/img/logos/firefox_os.png" alt="Firefox OS" style="top: 20%;">
+                            <img class="tv_os roku_tv" src="/img/logos/roku_tv.png" alt="Roku TV" style="top: 40%;">
+                            <img class="tv_os tizen_os" src="/img/logos/tizen_os.png" alt="Tizen OS" style="top: 60%;">
+                            <img class="tv_os web_os" src="/img/logos/web_os.png" alt="Web OS" style="top: 80%;">
+                        </div>
                     </section>
                     <section
                         data-background-video="/videos/ard.mp4"
@@ -304,6 +327,14 @@
 
                 if (event.fragment.className.indexOf('titleSlide') > -1) {
                     event.fragment.className = event.fragment.className.replace('easeIn', '')
+                }
+
+                if (event.fragment.className.indexOf('tv_os_systems') > -1) {
+                    document.querySelector('.android_tv').className += " showme";
+                    setTimeout(() => document.querySelector('.firefox_os').className += " showme", 100)
+                    setTimeout(() => document.querySelector('.roku_tv').className += " showme", 200)
+                    setTimeout(() => document.querySelector('.tizen_os').className += " showme", 300)
+                    setTimeout(() => document.querySelector('.web_os').className += " showme", 400)
                 }
             });
 		</script>

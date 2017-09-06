@@ -71,3 +71,17 @@ h2.driver {
     top: 75%;
     transition: opacity 0.5s;
 }
+
+.reveal section img.tv_os {
+    position: absolute;
+    left: 45%;
+    border: 0;
+    box-shadow: none;
+    width: 200px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.reveal section img.tv_os.showme {
+    opacity: 1;
+}
