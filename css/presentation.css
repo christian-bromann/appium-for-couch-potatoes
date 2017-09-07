@@ -38,6 +38,12 @@
     transform: rotate(-60deg);
 }
 
+.reveal h2.takeaways:before {
+    width: 15px;
+    height: 170px;
+    top: 15px;
+}
+
 .animatedlogo {
     transition: left 2s, top 2s, opacity 2s;
 }
