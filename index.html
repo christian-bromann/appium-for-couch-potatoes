@@ -279,6 +279,10 @@
                         data-background-video="/videos/interactive.mp4"
                         data-background-video-muted>
                     </section>
+                    <section
+                        data-background-image="/img/tvlab.jpeg"
+                        data-background-position="35% 50%">
+                    </section>
                 </section>
 			</div>
 		</div>
@@ -350,11 +354,7 @@
                     document.querySelector('[alt="Selendroid"]').parentElement.style.left = '75%';
                     document.querySelector('[alt="Selendroid"]').parentElement.style.top = '40%';
 
-                    setTimeout(() => {
-                        console.log("NOOW", document.querySelector('h2.clients'));
-                        document.querySelector('h2.clients').style.opacity = '1';
-                        console.log(document.querySelector('h2.clients').style);
-                    }  , 2000);
+                    setTimeout(() => document.querySelector('h2.clients').style.opacity = '1', 2000);
                     setTimeout(() => document.querySelector('h2.browser').style.opacity = '1', 2200);
                     setTimeout(() => document.querySelector('h2.driver').style.opacity = '1', 2400);
                 }
