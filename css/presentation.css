@@ -158,3 +158,17 @@ h2.driver {
         offset-distance: 100%;
     }
 }
+
+.reveal h1.devtoolsh1 {
+    transition: transform 0.2s;
+    transform: translate(0, 200%);
+}
+.reveal h1.devtoolsh1.up {
+    transform: translate(0, 0);
+}
+.reveal img.devtoolsbackendimg {
+    border: 0;
+    box-shadow: none;
+    background: none;
+    width: 100%;
+}
