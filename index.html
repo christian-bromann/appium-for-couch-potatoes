@@ -268,18 +268,25 @@
                         </div>
                     </section>
                     <section data-background="#fff" style="width: 1920px; height: 1080px;">
-                        <img src="/img/broadcaster.png" alt="broadcaster" style="position: absolute; top: 0; left: 50%; width: 200px; border: 0; box-shadow: none; margin-left: -100px;">
-                        <img src="/img/tv_wo_hbbtv.svg" alt="broadcaster" style="position: absolute; top: 59%; left: 50%; width: 500px; border: 0; box-shadow: none; margin-left: -250px;">
-                        <img src="/img/arrow.svg" alt="broadcaster" style="position: absolute; top: 9%; left: 30%; width: 500px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0;">
-                        <img src="/img/dvb-t.png" alt="broadcaster" style="position: absolute; top: 40%; left: 22%; width: 150px; border: 0; margin-left: -250px; background-color: #fff; padding: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); z-index: 1;">
-                        <img src="/img/arrow.svg" alt="broadcaster" style="position: absolute; top: 6%; left: 27%; width: 567px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0;">
-                        <img src="/img/dvb-s.png" alt="broadcaster" style="position: absolute; top: 47%; left: 25%; width: 150px; border: 0; margin-left: -250px; background-color: #fff; padding: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); z-index: 1;">
-                        <img src="/img/arrow.svg" alt="broadcaster" style="position: absolute; top: 3%; left: 24%; width: 634px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0;">
-                        <img src="/img/dvb-c.png" alt="broadcaster" style="position: absolute; top: 53.5%; left: 29%; width: 150px; border: 0; margin-left: -250px; background-color: #fff; padding: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); z-index: 1;">
+                        <img src="/img/broadcaster.png" alt="broadcaster" class="fragment" style="position: absolute; top: 0; left: 50%; width: 200px; border: 0; box-shadow: none; margin-left: -100px;">
+                        <img class="fragment" src="/img/tv_wo_hbbtv.svg" alt="broadcaster" style="position: absolute; top: 59%; left: 50%; width: 500px; border: 0; box-shadow: none; margin-left: -250px;">
+    					<div class="fragment dvb_types">
+                            <img src="/img/arrow.svg" class="dvb2_arrow" alt="broadcaster" style="position: absolute; top: 9%; left: 30%; width: 500px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0;">
+                            <img src="/img/dvb-t.png" class="dvb1" alt="broadcaster" style="position: absolute; top: 40%; left: 22%; width: 150px; border: 0; margin-left: -250px; background-color: #fff; padding: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); z-index: 1;">
+                            <img src="/img/arrow.svg" class="dvb1_arrow" alt="broadcaster" style="position: absolute; top: 6%; left: 27%; width: 567px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0;">
+                            <img src="/img/dvb-s.png" class="dvb2" alt="broadcaster" style="position: absolute; top: 47%; left: 25%; width: 150px; border: 0; margin-left: -250px; background-color: #fff; padding: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); z-index: 1;">
+                            <img src="/img/arrow.svg" class="dvb3_arrow" alt="broadcaster" style="position: absolute; top: 3%; left: 24%; width: 634px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0;">
+                            <img src="/img/dvb-c.png" class="dvb3" alt="broadcaster" style="position: absolute; top: 53.5%; left: 29%; width: 150px; border: 0; margin-left: -250px; background-color: #fff; padding: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); z-index: 1;">
+                        </div>
 
-                        <img src="/img/arrow.svg" alt="broadcaster" style="position: absolute; top: 6%; left: 68%; width: 567px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0; transform: scaleX(-1)">
-                        <img src="/img/cloud.svg" alt="broadcaster" style="position: absolute; top: 11%; left: 78%; width: 567px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0;">
-                        <img id="ait" src="/img/ait.png" alt="AIT Package">
+                        <img class="fragment ait_package" id="ait" src="/img/ait.png" alt="AIT Package">
+
+                        <div class="fragment">
+                            <img src="/img/arrow.svg" alt="broadcaster" style="position: absolute; top: 6%; left: 68%; width: 567px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0; transform: scaleX(-1)">
+                            <img src="/img/cloud.svg" alt="broadcaster" style="position: absolute; top: 11%; left: 78%; width: 567px; border: 0; box-shadow: none; margin-left: -250px; z-index: 0;">
+                        </div>
+
+                        <img class="fragment" src="/img/hbbtv_overlay.png" alt="broadcaster" style="position: absolute; top: 59%; left: 50%; width: 500px; border: 0; box-shadow: none; margin-left: -250px;">
                     </section>
                     <section
                         data-background-video="/videos/ard.mp4"
@@ -415,6 +422,19 @@
                     setTimeout(() => document.querySelector('.roku_tv').className += " showme", 200)
                     setTimeout(() => document.querySelector('.tizen_os').className += " showme", 300)
                     setTimeout(() => document.querySelector('.web_os').className += " showme", 400)
+                }
+
+                if (event.fragment.className.indexOf('ait_package') > -1) {
+                    document.querySelector('#ait').className += " animate";
+                }
+
+                if (event.fragment.className.indexOf('dvb_types') > -1) {
+                    document.querySelector('.dvb1').className += " showme";
+                    document.querySelector('.dvb3_arrow').className += " showme";
+                    setTimeout(() => document.querySelector('.dvb2').className += " showme", 200)
+                    setTimeout(() => document.querySelector('.dvb1_arrow').className += " showme", 200)
+                    setTimeout(() => document.querySelector('.dvb3').className += " showme", 400)
+                    setTimeout(() => document.querySelector('.dvb2_arrow').className += " showme", 400)
                 }
             });
 		</script>

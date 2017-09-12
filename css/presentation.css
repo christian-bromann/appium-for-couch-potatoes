@@ -88,7 +88,15 @@ h2.driver {
     transition: opacity 0.3s;
 }
 
-.reveal section img.tv_os.showme {
+.reveal .dvb1, .reveal .dvb2, .reveal .dvb3,
+.reveal .dvb1_arrow, .reveal .dvb2_arrow, .reveal .dvb3_arrow {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.reveal section img.tv_os.showme,
+.reveal .dvb1.showme, .reveal .dvb2.showme, .reveal .dvb3.showme,
+.reveal .dvb1_arrow.showme, .reveal .dvb2_arrow.showme, .reveal .dvb3_arrow.showme {
     opacity: 1;
 }
 
@@ -124,11 +132,29 @@ h2.driver {
     top: 9%;
     left: 17%;
     offset-path: path('m471.98398 8.0c-51.10675 14.763205 -236.05096 38.75591 -306.64038 88.57923c-70.58943 49.823326 -107.57827 126.09252 -116.89619 210.36072c-9.317917 84.26819 7.3405647 229.43237 60.988693 295.24847c26.824059 32.908142 81.17823 53.66815 134.26181 68.27728c26.541794 7.3045044 52.765945 13.071289 75.07234 18.049988c11.153198 2.4893188 21.326965 4.781555 30.071259 6.97052c1.0930481 0.2736206 2.1637573 0.54571533 3.2112427 0.81622314l1.0679321 0.27825928');
-    animation: pathy 3200ms infinite linear;
+}
+
+.animate {
+    animation-name: pathy;
+    animation-duration: 3200ms;
+    animation-timing-function: linear;
+}
+#ait.animate {
+    width: 0;
 }
 
 @keyframes pathy {
-  100% {
-    offset-distance: 100%;
-  }
+    from {
+        width: 0px;
+    }
+    10% {
+        width: 100px;
+    }
+    90% {
+        width: 100px;
+    }
+    100% {
+        width: 0;
+        offset-distance: 100%;
+    }
 }
