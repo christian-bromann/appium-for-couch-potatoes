@@ -159,14 +159,18 @@ h2.driver {
     }
 }
 
-.reveal h1.devtoolsh1 {
+.reveal h1.devtoolsh1,
+.reveal h1.ahbbtvdh1 {
     transition: transform 0.2s;
     transform: translate(0, 200%);
 }
-.reveal h1.devtoolsh1.up {
+.reveal h1.devtoolsh1.up,
+.reveal h1.ahbbtvdh1.up {
     transform: translate(0, 0);
 }
-.reveal img.devtoolsbackendimg {
+
+.reveal img.devtoolsbackendimg,
+.reveal img.appiumhbbtvdriverimg {
     border: 0;
     box-shadow: none;
     background: none;

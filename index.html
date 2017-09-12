@@ -319,12 +319,31 @@
                         data-background-size="contain"
                         data-background-color="#ffffff">
                     </section>
+                    <section
+                        data-background-image="/img/command_handling.png"
+                        data-background-size="60%"
+                        data-background-color="#ffffff">
+                    </section>
+                    <section>
+                        <h1 class="ahbbtvdh1">Appium HbbTV Driver</h1>
+                        <img class="fragment fade-up appiumhbbtvdriverimg" src="/img/appium-hbbtv-driver.png" alt="Appium HbbTV Driver">
+                    </section>
+                    <section
+                        data-background-image="/img/appium-driver-diagram.png"
+                        data-background-size="60%"
+                        data-background-color="#ffffff">
+                    </section>
+                    <section
+                        data-background-video="/videos/appium-hbbtv-driver.mp4"
+                        data-background-size="contain"
+                        data-background-video-muted>
+                    </section>
                 </section>
                 <section>
                     <div class="fragment rotateHeading" style="position:absolute; left: 10%; width: 100%; text-align: left; padding-left: 40px; padding-top: 55px; font-size: 1.5em;">
                         <h2 class="intro takeaways easeIn">Key Takeaways</h2>
                         <ul>
-                            <li>Learn about the WebDriver protocol and their<br>automation driver, it helps</li>
+                            <li>Learn about the WebDriver protocol and all the<br>automation driver, it helps</li>
                             <li>Read the source code</li>
                             <li>Contribute</li>
                         </ul>
@@ -448,6 +467,10 @@
 
                 if (event.fragment.className.indexOf('devtoolsbackendimg') > -1) {
                     document.querySelector('.devtoolsh1').className += " up";
+                }
+
+                if (event.fragment.className.indexOf('appiumhbbtvdriverimg') > -1) {
+                    document.querySelector('.ahbbtvdh1').className += " up";
                 }
             });
 		</script>
