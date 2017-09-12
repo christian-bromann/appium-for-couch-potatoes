@@ -338,6 +338,69 @@
                         data-background-size="contain"
                         data-background-video-muted>
                     </section>
+                    <section>
+                        <div class="fragment rotateHeading" style="position:relative; text-align: left; padding-left: 140px; padding-top: 55px;">
+                            <h2 class="intro codexample easeIn" style="transform: translateX(60px)">HbbTV E2E Test</h2>
+                            <pre style="box-shadow: none; margin-left: 0"><code class="hljs" data-trim style="max-height: 800px; background-color: #222;">
+import BPS from '../page_objects/bps.page'
+import { expect } from 'chai'
+
+describe('MPAT HbbTV App - DVB-T2 Broadcast Probing System', () => {
+    it('should open correct page', () => {
+        BPS.open()
+        expect(BPS.header.getText()).to.be.equal(BPS.title)
+    })
+
+    it('should not play video from the beginning', () => {
+        expect(BPS.videoThumbnail.isExisting()).to.be.equal(true)
+        expect(BPS.video.isExisting()).to.be.equal(false)
+    })
+
+    it('should start the video', () => {
+        browser.keys('right')
+        browser.keys('enter')
+        expect(BPS.video.isExisting()).to.be.equal(true)
+    })
+
+    it('should play video', () => {
+        expect(BPS.isVideoPlaying()).to.be.equal(true)
+    })
+})
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="fragment rotateHeading" style="position:relative; text-align: left; padding-left: 140px; padding-top: 55px;">
+                            <h2 class="intro codexample easeIn" style="transform: translateX(60px)">HbbTV Page Object</h2>
+                            <pre style="box-shadow: none; margin-left: 0"><code class="hljs" data-trim style="max-height: 800px; background-color: #222;">
+import { Page } from './mpat.page'
+
+class BroadcastProbingSystemPage extends Page {
+    open () {
+        super.open()
+        browser.keys('down').keys('down').keys('down').keys('down').keys('down').keys('enter')
+        browser.waitUntil(() => this.activeMenuItem.getText() === 'BPS')
+        browser.pause(2000)
+    }
+
+    get title () { return 'DVB-T2 Broadcast Probing System' }
+    get videoThumbnail () { return $('.video-content .thumbnail') }
+    get video () { return $('.video-wrapper > object') }
+
+    isVideoPlaying () {
+        return browser.waitUntil(() => {
+            return browser.execute(function () {
+                return document.querySelector('.video-wrapper > object').playState === 1
+            }).value
+        }, 10000, 'video never started')
+    }
+}
+
+export default new BroadcastProbingSystemPage()
+export { BroadcastProbingSystemPage as Page }
+                            </code></pre>
+                        </div>
+                    </section>
                 </section>
                 <section>
                     <div class="fragment rotateHeading" style="position:absolute; left: 10%; width: 100%; text-align: left; padding-left: 40px; padding-top: 55px; font-size: 1.5em;">

@@ -38,6 +38,14 @@
     transform: rotate(-60deg);
 }
 
+h2.codexample {
+    margin-bottom: 80px;
+}
+.reveal h2.intro.codexample:before {
+    top: -35px;
+    left: -30px;
+}
+
 .reveal h2.takeaways:before {
     width: 15px;
     height: 170px;
