@@ -29,9 +29,22 @@
 				<section
 					data-background="/img/start.png"
 					data-transition="slide-in fade-out">
-				</section>
-				<section
-					data-background="#fff">
+
+                    <aside class="notes">
+                		<ul>
+                		    <li>Say Hi!</li>
+                            <li>Hope you had a great breakfast</li>
+                            <li>Excited to be here today ...</li>
+                            <li>Disclaimer: even though an Appium talk this is not about mobile</li>
+                            <li>This talk will be about ...</li>
+                            <li>First we set some vocabularies straight</li>
+                            <li>We will look into how browser driver work</li>
+                            <li>For people who don't know I will show you what HbbTV is</li>
+                            <li>How to the Appium HbbTV Driver works</li>
+                		</ul>
+                	</aside>
+                </section>
+				<section data-background="#fff">
 					<div class="fragment titleSlide easeIn intro">
 						<h1 style="margin-bottom: 0;">Christian Bromann</h1>
 						<h4 style="font-weight: normal; position: relative; bottom: 15px; color: #777;">Software Engineer</h4>
@@ -47,11 +60,28 @@
 					data-transition="convex"
 					data-background-transition="convex">
 					<img src="/img/fokus_logo.png" alt="" style="transform: translateY(-100px)">
+
+                    <aside class="notes">
+                        <ul>
+                            <li>The whole work around the HbbTV Driver happen in collaboration with the Fraunhofer Institute</li>
+                            <li>They supported me and also sponsored some of the video material I use in this talk</li>
+                        </ul>
+                    </aside>
 				</section>
                 <section
                     data-background-video="/videos/magic.mp4"
                     data-background-video-loop
                     data-background-video-muted>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>For many people Selenium is some kind of magical piece of software that can control browser</li>
+                            <li>Due to its nature it is pretty fragile</li>
+                            <li>If an error happen developers are used to blame it on Selenium</li>
+                            <li>but this is not right</li>
+                            <li>Selenium has usually nothing to do with it</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section
 					data-background="#fff"
@@ -113,6 +143,20 @@
                         <h2 class="driver">Driver</h2>
                     </div>
                     <div class="fragment collectlogos"></div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>Another reason why Selenium is so confusing is the puzzle of tools and software that it is connected with</li>
+                            <li>Click</li>
+                            <li>Especially in the Node.js ecosystem there are tons of tools that can be used for browser automation</li>
+                            <li>Difficult to figure out what tool is right for someone</li>
+                            <li>Click</li>
+                            <li>But Selenium clients are just one piece in the toolchain</li>
+                            <li>there are also selenium drivers and browser that want get automated</li>
+                            <li>any error in your test can happen in one of the stacks</li>
+                            <li>and they can differ (sometimes even a lot) from each other</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="#fff">
                     <div style="position: absolute; left: 45%; top: 0%;" class="exampleChrome animatedlogoQuick">
@@ -132,15 +176,49 @@
                         <img src="/img/chromedriver.png" alt="chromedriver" style="border:0; box-shadow: none; width: 200px;">
                         <img src="/img/arrow.png" alt="" style="position: absolute; right: 74%; top: 30%; border: 0; box-shadow: none; width: 100px; transform: rotate(180deg);">
                     </div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>Let's say we want to automate just Chrome</li>
+                            <li>Then let's pick a Selenium client library, like WebdriverIO</li>
+                            <li>Click</li>
+                            <li>How could have guessed :-D</li>
+                            <li>Once you start your test script you will see that nothing happens</li>
+                            <li>After some research you find out, ok, we need a Selenium server apparently</li>
+                            <li>Click</li>
+                            <li>Rerunning turns out it still doesn't work</li>
+                            <li>You need another dependency which is a Chromedriver</li>
+                            <li>Click</li>
+                            <li>You get quickly frustrated because you need all these dependency to do a simple test automation</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section>
-                    <section data-background="/videos/history.gif"></section>
+                    <section data-background="/videos/history.gif">
+                        <aside class="notes">
+                            <ul>
+                                <li>To understand why that is we need to get back in time</li>
+                                <li>to when Selenium was created</li>
+                            </ul>
+                        </aside>
+                    </section>
                     <section data-background="#ffffff">
                         <div style="background: url(/img/safari.png); width: 88%; height: 1201px; padding: 0; background-size: cover; margin: 0 auto; z-index: 10; overflow: hidden; transform: translateY(-7%);">
 							<div class="safaricontent" style="background: url(/img/safaricontent.png) 0% 0% / cover no-repeat; width: 1550px; display: block; height: 969px; margin: 158px 70px 0; border-radius: 0 0 20px 20px;"></div>
                         </div>
                         <div class="fragment scrollbrowser"></div>
                         <div class="fragment"><div style="width: 53%; height: 200px; border: 10px solid red; position: absolute; top: 0; border-radius: 70%; z-index: 11; left: 10%; transform: translateY(434px);"></div></div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>In 2007 Jason Huggins presented a tool that he has build at Thoughtworks to the GTAC in London</li>
+                                <li>He called it Selenium</li>
+                                <li>It was some kind of Proxy that injected a script into the web environment</li>
+                                <li>and allowed to call commands based on HTTP calls</li>
+                                <li>This was a smashing hit, everyone was excited</li>
+                                <li>if you literally scroll to the first YouTube comment ...</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section
                         data-background-color="#ffffff"
@@ -148,6 +226,15 @@
                         data-background-size="contain"
                         data-background-video-loop
                         data-background-video-muted>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>One year later Simon Stewart then presented at the same conference another project called Webdriver</li>
+                                <li>It used a more native approach to automate the browser</li>
+                                <li>Instead of injecting a script he used an internal browser interface to call commands on</li>
+                                <li>(The video is actually not showing his talk, it was a lightning talk with Hugs comparing Selenium and Webdriver .. apparently the convo became heated and they ended up throwing balls at each other)</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section>
                         <div class="fragment rotateHeading" style="position:absolute; left: 10%; width: 35%; text-align: left; padding-left: 40px; padding-top: 55px;">
@@ -164,6 +251,18 @@
                                 <li>No cross site scripting issues</li>
                             </ul>
                         </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>So there were these two frameworks, Click, Selenium and (Click) Webdriver</li>
+                                <li>They quickly merged into one project called Selenium Webdriver</li>
+                                <li>which used the good parts of one of each other</li>
+                                <li>One: communication based on http to provide support for arbitrary programming languages</li>
+                                <li>use internal interfaces to automate the browser</li>
+                                <li>(e.g. browser extension that get executed in the same runtime as the target environment)</li>
+                                <li>(e.g. native browser interfaces like the Chrome DevTools Protocol)</li>
+                            </ul>
+                        </aside>
                     </section>
                 </section>
 				<section>
@@ -171,24 +270,64 @@
 	                    data-background-iframe="https://chromedevtools.github.io/devtools-protocol/"
 	                    data-background-interactive
 	                    data-background="#fff">
+
+                        <aside class="notes">
+                            <ul>
+                                <li>With Chrome v28 (at the time where Google forked WebKit and used this fork called Blink as browser engine) Google introduced Chromedriver</li>
+                                <li>It allowed to automate Chrome based on the WebDriver Wire protocol that came with Webdriver</li>
+                                <li>Chromedriver itself used then the DevTools protocol to run the actual automation commands</li>
+                                <li>On this page you actually see the DevTools protocol viewer which documents the protocol, its method and arguments</li>
+                            </ul>
+                        </aside>
 	                </section>
 					<section data-transition="zoom" data-background-transition="slide" data-transition-speed="slow">
 						<pre style="box-shadow: none; margin-left: 0; width: 100%; text-align: center">
 							<code class="hljs" data-trim style="max-height: 800px; background-color: transparent; height: 100px; font-size: 2.5em;">
 $ Google\ Chrome --remote-debugging-port=9222
 						</code></pre>
+                        <aside class="notes">
+                            <ul>
+                                <li>As you probably know you can enable the remote debugging interface by calling this command</li>
+                                <li>Which is exactly what Chromedriver does</li>
+                                <li>and I will show you that in a second</li>
+                            </ul>
+                        </aside>
 					</section>
 					<section data-background="#fff">
 						<img src="/img/inspected_pages.png" alt="Inspected Pages" style="border: 0; box-shadow: none; background: transparent; position: absolute; top: 0; left: 0; width: 80%; max-height: none; transform: translate(0px, -250px); z-index: 0;">
 						<img src="/img/debug_the_debugger.png" alt="Debug the debugger" style="border: 0; box-shadow: none; background: transparent; z-index: 10; position: absolute; width: 80%; max-height: none; left: 0; transform: translate(300px, 160px);">
+
+                        <aside class="notes">
+                            <ul>
+                                <li>If you do that you basically expose the internals of Chrome</li>
+                                <li>this for example allows you to debug the devtools</li>
+                                <li>and see what is actually happening under the hood of DevTools</li>
+                            </ul>
+                        </aside>
 					</section>
 				</section>
                 <section data-background="/img/demo1.png">
+                    <aside class="notes">
+                        <ul>
+                            <li>This is actually possible with Chromedriver too</li>
+                            <li>DEMO</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section
                     data-background-iframe="https://www.w3.org/TR/webdriver/"
                     data-background-interactive
                     data-background="#fff">
+
+                    <aside class="notes">
+                        <ul>
+                            <li>So since June last year there is an official WebDriver protocol</li>
+                            <li>As you can see it is way more abstract and supports only a friction of what is possible with the DevTools protocol</li>
+                            <li>This is because the design goal of WebDriver is to automate from the user perspective</li>
+                            <li>Joke about http status code - user don't see the status code, they either see the expected headline or not</li>
+                            <li>my take on that is...</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="/img/demo2.png">
                 </section>
