@@ -276,6 +276,7 @@
                                 <li>With Chrome v28 (at the time where Google forked WebKit and used this fork called Blink as browser engine) Google introduced Chromedriver</li>
                                 <li>It allowed to automate Chrome based on the WebDriver Wire protocol that came with Webdriver</li>
                                 <li>Chromedriver itself used then the DevTools protocol to run the actual automation commands</li>
+								<li>It translates WebDriver (or JSONWire commands) into DevTools protocol commands and vice versa</li>
                                 <li>On this page you actually see the DevTools protocol viewer which documents the protocol, its method and arguments</li>
                             </ul>
                         </aside>
@@ -330,23 +331,54 @@ $ Google\ Chrome --remote-debugging-port=9222
                     </aside>
                 </section>
                 <section data-background="/img/demo2.png">
+					<aside class="notes">
+                        <ul>
+                            <li>I prepared some Demos that show how you can connect functionality of the Chrome DevTools protocol with the WebDriver protocol</li>
+                            <li>Explain Crmuxdriver</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section>
                     <section
                         data-background-iframe="https://remotedebug.org/"
                         data-background-interactive
                         data-background="#fff">
+						<aside class="notes">
+	                        <ul>
+	                            <li>Remote Debugging protocol is different based on the browser engine</li>
+	                            <li>WebKit -> Safari, close to Blink -> Chrome</li>
+								<li>Gecko -> Firefox</li>
+								<li>UiAutomator -> Android</li>
+								<li>XCUITest -> iOS</li>
+								<li>Explain Remote Debug... similar as Appium an approach to unify all this different protocols</li>
+	                        </ul>
+	                    </aside>
                     </section>
                     <section
                         data-background-iframe="https://remotedebug.org/roadmap/"
                         data-background-interactive
                         data-background="#fff">
+						<aside class="notes">
+	                        <ul>
+	                            <li>It is kind of a competition</li>
+								<li>tech provider try to bind us to their developing tools and frameworks</li>
+								<li>we developer want to build one app and roll it out to all</li>
+								<li>like Cordova or even Appium</li>
+								<li>OR the technology I want to talk now: HbbTV!</li>
+	                        </ul>
+	                    </aside>
                     </section>
                 </section>
                 <!-- HbbTV -->
                 <section>
                     <section data-background="#fff">
                         <img src="/img/logos/hbbtv.png" alt="HbbTV" style="border: 0; box-shadow: none">
+						<aside class="notes">
+	                        <ul>
+	                            <li>HbbTV also resulted due to the issue of having to build an app for all platforms</li>
+								<li>but this time we are not talking about phones we are talking about TVs</li>
+	                        </ul>
+	                    </aside>
                     </section>
                     <section data-background="#fff" style="width: 100%; height: 800px;">
                         <div class="fragment rotateHeading" style="position:absolute; left: 10%; width: 35%; text-align: left; padding-left: 40px; padding-top: 55px; top: 0;">
@@ -361,6 +393,18 @@ $ Google\ Chrome --remote-debugging-port=9222
                             <h2 class="intro easeIn">Game Consoles</h2>
                             <img src="/img/gameconsoles.png" alt="" style="border: 0; box-shadow: none;">
                         </div>
+						<aside class="notes">
+	                        <ul>
+	                            <li>As you might already seen, TVs became connected devices over the last several years too</li>
+								<li>But like everywhere else multiple companies provided multiple technologies to make it a connected device</li>
+								<li>so there were Set Top Boxes, [CLICK] Smart TV Sticks [CLICK] and Game Consoles</li>
+								<li>With every piece of device it enabled your TV to have somekind of connected expierence</li>
+								<li>I am talking about Apps or web surfing capabilities</li>
+								<li>Even though as a customer you have the great choice to pick one of the devices to equip your TV</li>
+								<li>As developer you need to build 3 or more different apps in different languages</li>
+								<li>That is hell</li>
+	                        </ul>
+	                    </aside>
                     </section>
                     <section
                         data-background-color="#ffffff"
@@ -373,13 +417,77 @@ $ Google\ Chrome --remote-debugging-port=9222
                             <img class="tv_os tizen_os" src="/img/logos/tizen_os.png" alt="Tizen OS" style="top: 60%;">
                             <img class="tv_os web_os" src="/img/logos/web_os.png" alt="Web OS" style="top: 80%;">
                         </div>
+						<aside class="notes">
+	                        <ul>
+	                            <li>HbbTV tries to define one common standard to bring digital applications to the TV</li>
+								<li>So instead of buiding apps for Apple TV, Chromecast or Rokus TV which all have different platforms to build apps</li>
+								<li>With HbbTV you can build one app with web technologies that is running on all TVs natively</li>
+								<li>So what is HbbTV?</li>
+	                        </ul>
+	                    </aside>
                     </section>
                     <section
                         data-background-color="#ffffff"
                         data-background="/img/logos/etsi.jpg"
                         data-background-size="60%">
+						<aside class="notes">
+	                        <ul>
+	                            <li>HbbTV is an ETSI standard</li>
+								<li>like HTML and CSS which is defined by W3C by an standardisation institute</li>
+								<li>ETSI: European Telecommunications Standards Institute</li>
+								<li>Introduces a handful of technical components and is mainly based on existing standards</li>
+								<li>HTML / CSS / JS pages rendered by a browser engine on the TV</li>
+	                        </ul>
+	                    </aside>
                     </section>
-					<section
+
+                    <section>
+                        <div class="fragment rotateHeading" style="position:relative; text-align: left;">
+                            <h2 class="intro codexample easeIn" style="transform: translateX(60px)">Hello World HbbTV App</h2>
+                            <pre style="box-shadow: none; margin-left: 0; font-size: 0.8em"><code class="hljs" data-trim style="max-height: 800px; background-color: #222;">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE html PUBLIC
+  &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+  &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+  &lt;head&gt;
+    &lt;!-- Required MIME content type as described in the HbbTV-standard: A.2.6.2. --&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot;
+      content=&quot;application/vnd.hbbtv.xml+xhtml; utf-8&quot; /&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;HelloWorld.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;HelloWorld.css&quot; /&gt;
+    &lt;title&gt;Hello World HbbTV Application&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body onload=&quot;initApp();&quot;&gt;
+    &lt;object style=&quot;width:0; height:0;&quot; id=&quot;appMan&quot;
+      type=&quot;application/oipfApplicationManager&quot;&gt;&lt;/object&gt;
+    &lt;div class=&quot;safe_area&quot; id=&quot;app_area&quot;&gt;
+    &lt;div id=&quot;background_plane&quot;&gt;&lt;h1&gt;Hello World&lt;/h1&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="fragment rotateHeading" style="position:relative; text-align: left;">
+                            <h2 class="intro codexample easeIn" style="transform: translateX(60px)">HbbTV Application Logic</h2>
+                            <pre style="box-shadow: none; margin-left: 0; font-size: 0.8em"><code class="hljs" data-trim style="max-height: 800px; background-color: #222;">
+function initApp() {
+    var oipf = document.getElementById(appMan);
+    var app = oipf.getOwnerApplication(document);
+    app.show()
+
+    // ...
+    // your custom logic here
+    // don't fear the ES3 engine ಠ‿ಠ
+    // ...
+}
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section
                         data-background-color="#ffffff"
                         data-background="/img/deployment.svg">
 
@@ -401,6 +509,16 @@ $ Google\ Chrome --remote-debugging-port=9222
                                   Inactive Countries
                             </div>
                         </div>
+						<aside class="notes">
+	                        <ul>
+	                            <li>Until this day there are over 300 apps available across ~40 countries</li>
+                                <li>and more to come</li>
+                                <li>Alone in Germany (according to studies from the HbbTV Association):</li>
+                                <li>over 120 HbbTV channels</li>
+                                <li>10 Mio. active devices</li>
+                                <li>93% sold devices (only 7% of the TVs had no HbbTV)</li>
+	                        </ul>
+	                    </aside>
 					</section>
                     <section data-background="#fff" style="width: 100%; height: 800px;">
                         <div class="fragment hbbtype rotateHeading" style="position: absolute; left: 5%; width: 70%; height: 300px; text-align: left; background: url(/img/hbbtv_broadcastindependant.jpg) 0px 0px no-repeat; top: 5%; padding-left: 500px; background-size: 400px; padding-top: 25px;">
@@ -438,6 +556,15 @@ $ Google\ Chrome --remote-debugging-port=9222
                         </div>
 
                         <img class="fragment" src="/img/hbbtv_overlay.png" alt="broadcaster" style="position: absolute; top: 59%; left: 50%; width: 500px; border: 0; box-shadow: none; margin-left: -250px;">
+                        <aside class="notes">
+                            <ul>
+                                <li>HbbTV = Hybrid Broadcast Broadband => broadcast + broadband stream</li>
+                                <li>When customer opens a broadcast channel the TV receives next to the broadcast stream (audio/video signal) a small data package that contains an URL of the HbbTV app</li>
+                                <li>AIT - Application Information Table</li>
+                                <li>HbbTV complaint TVs can read that table and reads the url from it</li>
+                                <li>This loads the App on top of the TV video stream</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section
                         data-background-video="/videos/ard.mp4"
@@ -454,12 +581,63 @@ $ Google\ Chrome --remote-debugging-port=9222
                     <section
                         data-background-image="/img/tvlab.jpeg"
                         data-background-position="35% 50%">
+
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    The first version of the standard was introduced in 2010 that allowed to build web
+                                    apps based in a CE-HTML (XHTML-based standard for designing webpages with remote
+                                    user interfaces for consumer electronic) that supports:
+                                    <br>
+                                    <ul>
+                                        <li>ECMA Script 3 (released 1999)</li>
+                                        <li>XHTML 1.0 transitional/strict</li>
+                                        <li>CSS 1.0</li>
+                                        <li>=> just think about that you have to build html apps from last century</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    With HbbTV 1.5 that added some technical components with HbbTV 2.0 (released last
+                                    year) the spec finally requires to support HTML5 and CSS3 (even though the JS API
+                                    support is still different across all devices)
+                                </li>
+                            </ul>
+                        </aside>
                     </section>
                 </section>
                 <section>
                     <section data-background-image="/img/appiumhbbtvdriverstart.jpg">
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Within the last 5 years 3 specifications were released that differentiate a lot,
+                                    unlike desktop browser people don’t update their TVs every other month
+                                </li>
+                                <li>
+                                    Device fragmentation is insane</li>
+                                <li>
+                                    <b>Problem:</b> Broadcaster need to support all versions of HbbTV to reach all
+                                    all people in front of the TV
+                                </li>
+                                <li>It’s like someone tells you: build Netflix that runs on IE5</li>
+                                <li>And make sure it is performant because the CPU on TVs is limited</li>
+                                <li>There is also no develop community around HbbTV (No frameworks, No Tooling)</li>
+                                <li>Extreme difficult to ensure quality across devices and HbbTV versions</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section data-background-image="/img/bestofboth.gif">
+                        <aside class="notes">
+                            <ul>
+                                <li><b>Question:</b> So how we can bring HbbTV development up to speed?</li>
+                                <li>Don’t reinvent the wheel</li>
+                                <li>Selenium / Webdriver have been proven to be successful for test automation</li>
+                                <li>TVs provide no native interface to browser internals</li>
+                                <li>In order to provide some kind of automated testing functionality we need to go the Selenium way</li>
+                                <li>Which is: integrate an automation helper (no SSL issues, all on HTTP, Raspberry)</li>
+                                <li>BUT: do it the Webdriver way and use the DevTools protocol to allow web authoring</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section>
                         <h1 class="devtoolsh1">DevTools Backend</h1>
