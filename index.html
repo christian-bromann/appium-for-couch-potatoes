@@ -642,11 +642,27 @@ function initApp() {
                     <section>
                         <h1 class="devtoolsh1">DevTools Backend</h1>
                         <img class="fragment fade-up devtoolsbackendimg" src="/img/devtools-backend.png" alt="DevTools Backend">
+						<aside class="notes">
+                            <ul>
+                                <li>Standalone implementation of the Chrome DevTools protocol</li>
+								<li>Proxy to inject automation script</li>
+								<li>Similar what Weinre did back in the days</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section
                         data-background-image="/img/devtools-backend-demo.gif"
                         data-background-size="contain"
                         data-background-color="#ffffff">
+						<aside class="notes">
+                            <ul>
+                                <li>A proxy modifies the HTML response to inject an automation script</li>
+								<li>Initializes TCP connection to a server</li>
+								<li>Emulates remote debugging interface</li>
+								<li>Not everything can be emulated</li>
+								<li>JS API is pretty comprehensive and can do most of the stuff that we need for debugging</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section
                         data-background-image="/img/command_handling.png"
@@ -665,6 +681,26 @@ function initApp() {
                             style="position: absolute; left: 50%; width: 1600px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.45); margin-left: -800px; max-height: none; transform: translateY(-1.5%);">
                         <span class="fragment"></span>
                     </section>
+					<section
+						data-background-video="/videos/devtools-backend-demo.mp4"
+						data-background-size="contain"
+						data-background-video-muted>
+					</section>
+                    <section
+                        data-background-image="/img/elementsPanel.png"
+                        data-background-size="contain"
+                        data-background-color="#ffffff">
+                    </section>
+                    <section
+                        data-background-image="/img/consolePanel.png"
+                        data-background-size="contain"
+                        data-background-color="#ffffff">
+                    </section>
+                    <section
+                        data-background-image="/img/networkPanel.png"
+                        data-background-size="contain"
+                        data-background-color="#ffffff">
+                    </section>
                     <section>
                         <h1 class="ahbbtvdh1">Appium HbbTV Driver</h1>
                         <img class="fragment fade-up appiumhbbtvdriverimg" src="/img/appium-hbbtv-driver.png" alt="Appium HbbTV Driver">
@@ -672,6 +708,16 @@ function initApp() {
                     <section
                         data-background-image="/img/appium-driver-diagram.png"
                         data-background-size="60%"
+                        data-background-color="#ffffff">
+                    </section>
+                    <section
+                        data-background-image="/img/network.png"
+                        data-background-size="90%"
+                        data-background-color="#ffffff">
+                    </section>
+                    <section
+                        data-background-image="/img/hbbtv_grid.png"
+                        data-background-size="contain"
                         data-background-color="#ffffff">
                     </section>
                     <section
