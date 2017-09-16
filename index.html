@@ -466,6 +466,12 @@ $ Google\ Chrome --remote-debugging-port=9222
   &lt;/body&gt;
 &lt;/html&gt;
                             </code></pre>
+                            <aside class="notes">
+                                <ul>
+                                    <li>oipf = Open IPTV Forum</li>
+                                    <li>end-to-end solution to allow any consumer end-device, compliant to the Open IPTV Forum specifications, to access enriched and personalized IPTV services either in a managed or a non-managed network.</li>
+                                </ul>
+                            </aside>
                         </div>
                     </section>
 
@@ -525,7 +531,7 @@ function initApp() {
                             <h2 class="intro easeIn">Broadcast-independant applications</h2>
                             <ul>
                                 <li>Not assosicated with a broadcast stream</li>
-                                <li>download over app store</li>
+                                <li>TV apps provided by the device vendor</li>
                             </ul>
                         </div>
                         <div class="fragment hbbtype rotateHeading" style="position: absolute; left: 5%; width: 70%; height: 300px; text-align: left; background: url(/img/hbbtv_broadcastrelated.png) -30px 0px no-repeat; top: 55%; padding-left: 500px; background-size: 455px; padding-top: 25px;">
@@ -754,6 +760,13 @@ describe('MPAT HbbTV App - DVB-T2 Broadcast Probing System', () => {
     })
 })
                             </code></pre>
+                            <aside class="notes">
+                                <ul>
+                                    <li>Major difference between HbbTV tests and deskop test:</li>
+                                    <li>TV has only one input device: the remote control</li>
+                                    <li>instead of clicking on elements you call key actions</li>
+                                </ul>
+                            </aside>
                         </div>
                     </section>
                     <section>
