@@ -11,6 +11,7 @@
     "build": "grunt",
     "crmuxdriver": "crmuxdriver -c ~/.bin/chromedriver --port=4444 --url-base=/wd/hub --verbose",
     "demo:throttle": "wdio demos/network-throtteling/wdio.conf.js",
+    "demo:coverage": "wdio demos/coverage/wdio.conf.js",
     "demo:intercept": "wdio demos/network-intercept/wdio.conf.js",
     "demo:lighthouse": "wdio demos/lighthouse/wdio.conf.js"
   },
@@ -48,6 +49,7 @@
     "socket.io": "^1.4.8",
     "wdio-mocha-framework": "^0.5.11",
     "wdio-spec-reporter": "^0.1.2",
+    "wdio-static-server-service": "^1.0.1",
     "webdriverio": "^4.8.0"
   },
   "license": "MIT"
