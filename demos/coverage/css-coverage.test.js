@@ -36,10 +36,19 @@ describe('Check CSS coverage', () => {
 
     it('print coverage results', () => {
         for (const [id, data] of Object.entries(stylesheets)) {
-            console.log('Used styles for stylesheet with ID:', id)
+            console.log('\n\nNot used styles for stylesheet with ID:', id)
+            let textAsArray = data.text.split('')
+            let deletedCode = 0
+
+            /**
+             * delete used ranges
+             */
             for (const range of data.ranges) {
-                console.log('\n', data.text.slice(range.startOffset, range.endOffset));
+                textAsArray.splice(range.startOffset - deletedCode, range.endOffset - range.startOffset)
+                deletedCode += range.endOffset - range.startOffset
             }
+
+            console.log(textAsArray.join(''))
         }
     })
 })
