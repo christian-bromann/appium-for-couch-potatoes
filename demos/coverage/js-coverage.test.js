@@ -1,3 +1,4 @@
+let coverage
 const script = `
             var variable = 'Hello'
 
@@ -13,12 +14,12 @@ const script = `
 
 `
 
-describe('Check coverage', () => {
+describe('Check JS coverage', () => {
     before(() => {
         browser.execute('Profiler.enable')
     })
 
-    it('end test covergae', () => {
+    it('get coverage data', () => {
         /**
          * start test coverage profiler
          */
@@ -39,7 +40,10 @@ describe('Check coverage', () => {
          */
         browser.pause(1000)
         const result = browser.execute('Profiler.takePreciseCoverage')
-        const coverage = JSON.parse(result.value).result.result.filter((res) => res.url !== '')
+        coverage = JSON.parse(result.value).result.result.filter((res) => res.url !== '')
+    })
+
+    it('print coverage data', () => {
         console.log(JSON.stringify(coverage, null, 4))
 
         console.log('\n===========================\n', script, '\n===========================\n')

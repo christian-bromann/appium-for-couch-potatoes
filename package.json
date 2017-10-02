@@ -12,6 +12,8 @@
     "crmuxdriver": "crmuxdriver -c ~/.bin/chromedriver --port=4444 --url-base=/wd/hub --verbose",
     "demo:throttle": "wdio demos/network-throtteling/wdio.conf.js",
     "demo:coverage": "wdio demos/coverage/wdio.conf.js",
+    "demo:coverage:js": "wdio demos/coverage/wdio.conf.js --suite jsCoverage",
+    "demo:coverage:css": "wdio demos/coverage/wdio.conf.js --suite cssCoverage",
     "demo:intercept": "wdio demos/network-intercept/wdio.conf.js",
     "demo:lighthouse": "wdio demos/lighthouse/wdio.conf.js"
   },
