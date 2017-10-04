@@ -1,22 +1,9 @@
 let coverage
-const script = `
-            var variable = 'Hello'
-
-            if (false) {
-                console.log('I never get called')
-            }
-
-            function foobar() {
-                return 'barfoo'
-            }
-
-            foobar()
-
-`
 
 describe('Check JS coverage', () => {
     before(() => {
         browser.execute('Profiler.enable')
+        browser.execute('Debugger.enable')
     })
 
     it('get coverage data', () => {
@@ -38,7 +25,6 @@ describe('Check JS coverage', () => {
         /**
          * capture test coverage
          */
-        browser.pause(1000)
         const result = browser.execute('Profiler.takePreciseCoverage')
         coverage = JSON.parse(result.value).result.result.filter((res) => res.url !== '')
     })
@@ -46,7 +32,11 @@ describe('Check JS coverage', () => {
     it('print coverage data', () => {
         console.log(JSON.stringify(coverage, null, 4))
 
-        console.log('\n===========================\n', script, '\n===========================\n')
+        const scriptId = coverage[0].scriptId
+        const script = JSON.parse(
+            browser.execute('Debugger.getScriptSource', { scriptId }).value
+        ).result.scriptSource
+
         for (const func of coverage[0].functions) {
             console.log('\nFunction name:', func.functionName ? func.functionName : '<empty>')
             for (const range of func.ranges) {
