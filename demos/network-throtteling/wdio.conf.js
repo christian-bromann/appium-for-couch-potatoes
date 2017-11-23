@@ -1,6 +1,3 @@
-const Crmuxdriver = require('crmuxdriver/build/crmuxdriver')
-let driver
-
 exports.config = {
     //
     // ==================
@@ -44,7 +41,7 @@ exports.config = {
         // 5 instances get started at a time.
         browserName: 'chrome',
         chromeOptions: {
-            args: ['remote-debugging-port=9222']
+            binary: '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
         }
     }],
     //
@@ -107,7 +104,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],//
+    services: ['devtools'],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: http://webdriver.io/guide/testrunner/frameworks.html
@@ -140,18 +137,8 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    onPrepare: function (config, capabilities) {
-        driver = new Crmuxdriver({
-            c: '/Users/christianbromann/.bin/chromedriver',
-            p: 9222,
-            port: 4444,
-            'url-base': '/wd/hub'
-        })
-        driver.run()
-        
-        // wait 3s until driver has spawned
-        return new Promise((resolve) => setTimeout(resolve, 3000))
-    },
+    // onPrepare: function (config, capabilities) {
+    // },
     /**
      * Gets executed just before initialising the webdriver session and test framework. It allows you
      * to manipulate configurations depending on the capability or spec.
@@ -244,7 +231,6 @@ exports.config = {
      * possible to defer the end of the process using a promise.
      * @param {Object} exitCode 0 - success, 1 - fail
      */
-    onComplete: function(exitCode) {
-        driver.close()
-    }
+    // onComplete: function(exitCode) {
+    // }
 }

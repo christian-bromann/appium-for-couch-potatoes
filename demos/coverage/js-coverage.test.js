@@ -2,15 +2,15 @@ let coverage
 
 describe('Check JS coverage', () => {
     before(() => {
-        browser.execute('Profiler.enable')
-        browser.execute('Debugger.enable')
+        browser.cdp('Profiler', 'enable')
+        browser.cdp('Debugger', 'enable')
     })
 
     it('get coverage data', () => {
         /**
          * start test coverage profiler
          */
-        browser.execute('Profiler.startPreciseCoverage', {
+        browser.cdp('Profiler', 'startPreciseCoverage', {
             callCount: true,
             detailed: true
         })
@@ -25,17 +25,15 @@ describe('Check JS coverage', () => {
         /**
          * capture test coverage
          */
-        const result = browser.execute('Profiler.takePreciseCoverage')
-        coverage = JSON.parse(result.value).result.result.filter((res) => res.url !== '')
+        const { result } = browser.cdp('Profiler', 'takePreciseCoverage')
+        coverage = result.filter((res) => res.url !== '')
     })
 
     it('print coverage data', () => {
         console.log(JSON.stringify(coverage, null, 4))
 
         const scriptId = coverage[0].scriptId
-        const script = JSON.parse(
-            browser.execute('Debugger.getScriptSource', { scriptId }).value
-        ).result.scriptSource
+        const script = browser.cdp('Debugger', 'getScriptSource', { scriptId }).scriptSource
 
         for (const func of coverage[0].functions) {
             console.log('\nFunction name:', func.functionName ? func.functionName : '<empty>')
@@ -50,6 +48,6 @@ describe('Check JS coverage', () => {
         /**
          * stop profiler
          */
-        browser.execute('Profiler.stopPreciseCoverage')
+        browser.cdp('Profiler', 'stopPreciseCoverage')
     })
 })

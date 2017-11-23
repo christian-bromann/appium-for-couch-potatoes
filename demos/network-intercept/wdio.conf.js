@@ -1,5 +1,3 @@
-const Crmuxdriver = require('crmuxdriver/build/crmuxdriver')
-
 exports.config = {
     //
     // ==================
@@ -43,8 +41,7 @@ exports.config = {
         // 5 instances get started at a time.
         browserName: 'chrome',
         chromeOptions: {
-            binary: '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary',
-            args: ['remote-debugging-port=9222']
+            binary: '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
         }
     }],
     //
@@ -107,7 +104,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],//
+    services: ['devtools'],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: http://webdriver.io/guide/testrunner/frameworks.html
@@ -149,20 +146,8 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    beforeSession: function (config, capabilities, specs) {
-        global.driver = new Crmuxdriver({
-            c: '/Users/christianbromann/.bin/chromedriver',
-            p: 9222,
-            port: 4444,
-            'url-base': '/wd/hub'
-            // verbose: true
-            // 'protocol-logs': __dirname + '/log.txt'
-        })
-        global.driver.run()
-        
-        // wait 3s until driver has spawned
-        return new Promise((resolve) => setTimeout(resolve, 3000))
-    },
+    // beforeSession: function (config, capabilities, specs) {
+    // },
     /**
      * Gets executed before test execution begins. At this point you can access to all global
      * variables like `browser`. It is the perfect place to define custom commands.
@@ -239,9 +224,8 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that ran
      */
-    afterSession: function (config, capabilities, specs) {
-        driver.close()
-    }
+    // afterSession: function (config, capabilities, specs) {
+    // }
     /**
      * Gets executed after all workers got shut down and the process is about to exit. It is not
      * possible to defer the end of the process using a promise.

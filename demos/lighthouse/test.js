@@ -4,10 +4,11 @@ let _lhResult
 
 describe('Lighthouse PWA Testing', () => {
     before(() => {
+        const { port } = browser.cdpConnection()
         _lhResult = browser.call(() => lighthouse(
             'https://www.seleniumconf.de',
             {
-                port: global.driver.chromedriverPort,
+                port,
                 loadPage: false
             }, {
                 passes: [{

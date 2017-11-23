@@ -1,6 +1,6 @@
 describe('Network throttle test', () => {
     before(() => {
-        browser.execute('Network.enable')
+        browser.cdp('Network', 'enable')
     })
 
     it('should load page the normal way', () => {
@@ -22,15 +22,15 @@ describe('Network throttle test', () => {
     })
 
     it('should load not cached page the normal way again', () => {
-        browser.execute('Network.clearBrowserCache')
+        browser.cdp('Network', 'clearBrowserCache')
         const start = Date.now()
         browser.url('https://www.seleniumconf.de/')
         console.log(`4th page load (not cached) took ${Date.now() - start}ms`)
     })
 
     it('should load page with 3G speed', () => {
-        browser.execute('Network.clearBrowserCache')
-        browser.execute('Network.emulateNetworkConditions', {
+        browser.cdp('Network', 'clearBrowserCache')
+        browser.cdp('Network', 'emulateNetworkConditions', {
             offline: false,
             latency: 0, // ms
             downloadThroughput: 75000, // byte/s

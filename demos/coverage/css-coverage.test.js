@@ -3,8 +3,9 @@ const stylesheets = {}
 
 describe('Check CSS coverage', () => {
     before(() => {
-        browser.execute('CSS.enable')
-        browser.execute('CSS.startRuleUsageTracking')
+        browser.cdp('DOM', 'enable')
+        browser.cdp('CSS', 'enable')
+        browser.cdp('CSS', 'startRuleUsageTracking')
         browser.url('http://localhost:8080')
     })
 
@@ -12,23 +13,22 @@ describe('Check CSS coverage', () => {
         /**
          * start test coverage profiler
          */
-        const result = browser.execute('CSS.takeCoverageDelta')
-        coverage = JSON.parse(result.value)
+        coverage = browser.cdp('CSS', 'takeCoverageDelta')
     })
 
     it('get stylesheet data', () => {
-        for (const cov of coverage.result.coverage) {
+        for (const cov of coverage.coverage) {
             if (stylesheets[cov.styleSheetId]) {
                 stylesheets[cov.styleSheetId].ranges.push(cov)
                 continue
             }
 
-            const cssText = browser.execute('CSS.getStyleSheetText', {
+            const cssText = browser.cdp('CSS', 'getStyleSheetText', {
                 styleSheetId: cov.styleSheetId
-            }).value
+            })
 
             stylesheets[cov.styleSheetId] = {
-                text: JSON.parse(cssText).result.text,
+                text: cssText.text,
                 ranges: [cov]
             }
         }
