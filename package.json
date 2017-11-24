@@ -15,7 +15,8 @@
     "demo:coverage:js": "wdio demos/coverage/wdio.conf.js --suite jsCoverage",
     "demo:coverage:css": "wdio demos/coverage/wdio.conf.js --suite cssCoverage",
     "demo:intercept": "wdio demos/network-intercept/wdio.conf.js",
-    "demo:lighthouse": "wdio demos/lighthouse/wdio.conf.js"
+    "demo:lighthouse": "wdio demos/lighthouse/wdio.conf.js",
+    "demo:exception": "wdio demos/exception-listener/wdio.conf.js"
   },
   "author": {
     "name": "Hakim El Hattab",
