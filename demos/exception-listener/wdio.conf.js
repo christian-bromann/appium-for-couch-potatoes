@@ -109,7 +109,7 @@ exports.config = {
     services: ['static-server', 'devtools'],
     staticServerPort: 8080,
     staticServerFolders: [
-        { mount: '/', path: './demos/breakpoint/guineapig' }
+        { mount: '/', path: './demos/exception-listener/guineapig' }
     ],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
