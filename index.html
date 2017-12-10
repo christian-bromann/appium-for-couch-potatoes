@@ -27,7 +27,7 @@
 		<div class="reveal">
 			<div class="slides">
 				<section
-					data-background="/img/start.png"
+					data-background="/img/backgrounds/main.png"
 					data-transition="slide-in fade-out">
 
                     <aside class="notes">
@@ -176,6 +176,11 @@
                         <img src="/img/chromedriver.png" alt="chromedriver" style="border:0; box-shadow: none; width: 200px;">
                         <img src="/img/arrow.png" alt="" style="position: absolute; right: 74%; top: 30%; border: 0; box-shadow: none; width: 100px; transform: rotate(180deg);">
                     </div>
+                    <div class="fragment fade-in" style="position: absolute; left: 0%; top: 100%; width: 100%;">
+                        <span class="http2sel" style="position:relative; right: 8%;">HTTP</span>
+                        <span class="http2dri" style="position:relative; left: 12%;">HTTP</span>
+                        <span class="TCP" style="position:relative; left: 22%;">TCP</span>
+                    </div>
 
                     <aside class="notes">
                         <ul>
@@ -241,19 +246,19 @@
                     </section>
                     <section>
                         <div class="fragment rotateHeading" style="position:absolute; left: 5%; width: 40%; text-align: left; padding-left: 40px; padding-top: 55px;">
-                            <h2 class="intro easeIn">Selenium</h2>
-                            <ul>
-                                <li>Browser automation via executing JavaScript in the target environment</li>
-                                <li>Communication over a simplified HTTP protocol</li>
-                                <li>Support for all programming languages</li>
-                            </ul>
-                        </div>
-                        <div class="fragment rotateHeading" style="position:absolute; left: 55%; width: 40%; text-align: left; padding-left: 40px; padding-top: 55px;">
                             <h2 class="intro easeIn">Webdriver</h2>
                             <ul>
                                 <li>Browser automation using native interfaces (telnet, COM, JSSH)</li>
                                 <li>No cross site scripting issues</li>
                                 <li>Only Java support at the beginning</li>
+                            </ul>
+                        </div>
+                        <div class="fragment rotateHeading" style="position:absolute; left: 55%; width: 40%; text-align: left; padding-left: 40px; padding-top: 55px;">
+                            <h2 class="intro easeIn">Selenium</h2>
+                            <ul>
+                                <li>Browser automation via executing JavaScript in the target environment</li>
+                                <li>Communication over a simplified HTTP protocol</li>
+                                <li>Support for all programming languages</li>
                             </ul>
                         </div>
 
@@ -266,6 +271,35 @@
                                 <li>use internal interfaces to automate the browser</li>
                                 <li>(e.g. browser extension that get executed in the same runtime as the target environment)</li>
                                 <li>(e.g. native browser interfaces like the Chrome DevTools Protocol)</li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <div class="fragment rotateHeading" style="position:absolute; left: 5%; width: 40%; text-align: left; padding-left: 40px; padding-top: 55px;">
+                            <h2 class="intro easeIn">Webdriver</h2>
+                            <ul>
+                                <li>W3C standard to remotely instruct the behavior of web browsers</li>
+                                <li>language-neutral wire protocol</li>
+                                <li>Actively developed and discussed by the Browser Testing and Tools Working Group</li>
+                            </ul>
+                        </div>
+                        <div class="fragment rotateHeading" style="position:absolute; left: 55%; width: 40%; text-align: left; padding-left: 40px; padding-top: 55px;">
+                            <h2 class="intro easeIn">Selenium</h2>
+                            <ul>
+                                <li>Open Source project providing tooling for browser automation based on the WebDriver protocol</li>
+                                <li>Used contain code for all browser drivers</li>
+                                <li>Now it maintains a set of language bindings to progamatically use the WebDriver protocol</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>WebDriver spec is now a candidate recomendation</li>
+                                <li>People already think about WebDriver 2.0</li>
+                                <li>There is a initial draft for a mobile version of the spec (maybe part of WebDriver 2.0)</li>
+                                <li>Browser Testing and Tools Working Group contains 43 people from different companies like Google, Mozilla, Apple, SauceLabs and others</li>
+                                <li>Browser vendors took over work on browser driver</li>
+                                <li>Chromedriver (Chrome), Geckodriver (Firefox), Safaridriver (embedded into Safari) and Operadriver (based on Chromedriver)</li>
                             </ul>
                         </aside>
                     </section>
@@ -312,7 +346,7 @@ $ Google\ Chrome --remote-debugging-port=9222
                         </aside>
 					</section>
 				</section>
-                <section data-background="/img/demo1.png">
+                <section data-background="/img/backgrounds/demo1.png">
                     <aside class="notes">
                         <ul>
                             <li>This is actually possible with Chromedriver too</li>
@@ -335,7 +369,7 @@ $ Google\ Chrome --remote-debugging-port=9222
                         </ul>
                     </aside>
                 </section>
-                <section data-background="/img/demo2.png">
+                <section data-background="/img/backgrounds/demo2.png">
 					<aside class="notes">
                         <ul>
                             <li>I prepared some Demos that show how you can connect functionality of the Chrome DevTools protocol with the WebDriver protocol</li>
@@ -824,7 +858,7 @@ export { BroadcastProbingSystemPage as Page }
                         </ul>
                     </div>
                 </section>
-                <section data-background-image="/img/thanks.jpg">
+                <section data-background-image="/img/backgrounds/thankyou.png">
                     <aside class="notes">
                         <ul>
                             <li>🎉 YOU MADE IT 🎉</li>

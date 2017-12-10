@@ -1,3 +1,8 @@
+html body {
+    background: #200;
+    background-color: #200;
+}
+
 .reveal div.intro {
     text-align: left;
     padding: 20px 60px;
@@ -7,7 +12,7 @@
 .reveal div.intro:before {
     content: "";
     display: block;
-    background: #65308f;
+    background: red;
     width: 20px;
     height: 200px;
     position: absolute;
@@ -17,6 +22,10 @@
     transition: transform 0.4s;
 }
 
+.reveal div.intro.titleSlide:before {
+    background: #600;
+}
+
 .reveal div.intro.easeIn:before {
     transform: rotate(-60deg);
 }
@@ -24,7 +33,7 @@
 .reveal h2.intro:before {
     content: "";
     display: block;
-    background: #65308f;
+    background: red;
     width: 10px;
     height: 130px;
     position: absolute;
