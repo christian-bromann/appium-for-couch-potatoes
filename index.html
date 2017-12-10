@@ -334,8 +334,8 @@ $ Google\ Chrome --remote-debugging-port=9222
                         </aside>
 					</section>
 					<section data-background="#fff">
-						<img src="/img/inspected_pages.png" alt="Inspected Pages" style="border: 0; box-shadow: none; background: transparent; position: absolute; top: 0; left: 0; width: 80%; max-height: none; transform: translate(0px, -250px); z-index: 0;">
-						<img src="/img/debug_the_debugger.png" alt="Debug the debugger" style="border: 0; box-shadow: none; background: transparent; z-index: 10; position: absolute; width: 80%; max-height: none; left: 0; transform: translate(300px, 160px);">
+						<img src="/img/inspected_pages.png" alt="Inspected Pages" style="border: 0; box-shadow: none; background: transparent; position: absolute; top: 0; left: 0; width: 80%; max-height: none; transform: translate(0px, -55px); z-index: 0;">
+						<img src="/img/debug_the_debugger.png" alt="Debug the debugger" style="border: 0; box-shadow: none; background: transparent; z-index: 10; position: absolute; width: 80%; max-height: none; left: 0; transform: translate(300px, 0px);">
 
                         <aside class="notes">
                             <ul>
@@ -344,6 +344,20 @@ $ Google\ Chrome --remote-debugging-port=9222
                                 <li>and see what is actually happening under the hood of DevTools</li>
                             </ul>
                         </aside>
+					</section>
+                    <section
+                        data-background-image="/img/chromebug.png"
+                        data-background-repeat="no-repeat"
+                        data-background-size="contain"
+                        data-background-positon="center center"
+                        data-background-color="#ffffff">
+					</section>
+                    <section
+                        data-background-image="/img/chromemulticlient.png"
+                        data-background-repeat="no-repeat"
+                        data-background-size="contain"
+                        data-background-positon="center center"
+                        data-background-color="#ffffff">
 					</section>
 				</section>
                 <section data-background="/img/backgrounds/demo1.png">
@@ -485,7 +499,7 @@ $ Google\ Chrome --remote-debugging-port=9222
                     <section>
                         <div class="fragment rotateHeading" style="position:relative; text-align: left;">
                             <h2 class="intro codexample easeIn" style="transform: translateX(60px)">Hello World HbbTV App</h2>
-                            <pre style="box-shadow: none; margin-left: 0; font-size: 0.8em"><code class="hljs" data-trim style="max-height: 800px; background-color: #222;">
+                            <pre style="box-shadow: none; margin-left: 0; font-size: 0.8em"><code class="hljs" data-trim style="max-height: 800px; background-color: #200;">
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!DOCTYPE html PUBLIC
   &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
@@ -519,7 +533,7 @@ $ Google\ Chrome --remote-debugging-port=9222
                     <section>
                         <div class="fragment rotateHeading" style="position:relative; text-align: left;">
                             <h2 class="intro codexample easeIn" style="transform: translateX(60px)">HbbTV Application Logic</h2>
-                            <pre style="box-shadow: none; margin-left: 0; font-size: 0.8em"><code class="hljs" data-trim style="max-height: 800px; background-color: #222;">
+                            <pre style="box-shadow: none; margin-left: 0; font-size: 0.8em"><code class="hljs" data-trim style="max-height: 800px; background-color: #200;">
 function initApp() {
     var oipf = document.getElementById(appMan);
     var app = oipf.getOwnerApplication(document);
@@ -775,7 +789,7 @@ function initApp() {
                     <section>
                         <div class="fragment rotateHeading" style="position:relative; text-align: left; padding-left: 140px; padding-top: 55px;">
                             <h2 class="intro codexample easeIn" style="transform: translateX(60px)">HbbTV E2E Test</h2>
-                            <pre style="box-shadow: none; margin-left: 0"><code class="hljs" data-trim style="max-height: 800px; background-color: #222;">
+                            <pre style="box-shadow: none; margin-left: 0"><code class="hljs" data-trim style="max-height: 800px; background-color: #200;">
 import BPS from '../page_objects/bps.page'
 import { expect } from 'chai'
 
@@ -813,7 +827,7 @@ describe('MPAT HbbTV App - DVB-T2 Broadcast Probing System', () => {
                     <section>
                         <div class="fragment rotateHeading" style="position:relative; text-align: left; padding-left: 140px; padding-top: 55px;">
                             <h2 class="intro codexample easeIn" style="transform: translateX(60px)">HbbTV Page Object</h2>
-                            <pre style="box-shadow: none; margin-left: 0"><code class="hljs" data-trim style="max-height: 800px; background-color: #222;">
+                            <pre style="box-shadow: none; margin-left: 0"><code class="hljs" data-trim style="max-height: 800px; background-color: #200;">
 import { Page } from './mpat.page'
 
 class BroadcastProbingSystemPage extends Page {
