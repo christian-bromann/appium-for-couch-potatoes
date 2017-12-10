@@ -23,7 +23,7 @@ describe('Network throttle test', () => {
             const { interceptionId } = params
 
             if (params.request.url.includes('hero-background.png')) {
-                const url = 'https://static1.squarespace.com/static/54e8ba93e4b07c3f655b452e/t/590909e2bf629aaad4c385b0/1493764631456/DSC_9423.jpg'
+                const url = 'http://newsfirst.lk/english/wp-content/uploads/2016/12/hith-father-christmas-lights-iStock_000029514386Large.jpg'
                 return browser.cdp('Network', 'continueInterceptedRequest', { interceptionId, url })
             }
 

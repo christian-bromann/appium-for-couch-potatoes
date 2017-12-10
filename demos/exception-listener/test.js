@@ -18,7 +18,8 @@ describe('breakpoint demo', () => {
     afterEach(() => {
         assert.ok(
             exceptions.length === 0,
-            'The test triggered one or multiple JavaScript errors:\n\n' + exceptions.map((error) => error + '\n')
+            'The test triggered one or multiple JavaScript errors:\n\n' +
+            exceptions.map((error) => error + '\n')
         )
     })
 })
